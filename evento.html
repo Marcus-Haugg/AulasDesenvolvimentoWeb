@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Eventos</title>
+</head>
+
+<body>
+    <form method="post" action="evento.php">
+        <label>Nome do Evento</label>
+        <input type="text" name="nomeevento">
+        <label>Data</label>
+        <input type="text" name="data">
+        <label>Local</label>
+        <input type="text" name="local">
+        <button type="submit">Salvar</button>
+    </form>
+
+    <?php if (isset($eventos)): ?>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome do Evento</th>
+            <th>Data</th>
+            <th>Local</th>
+        </tr>
+        <?php foreach ($eventos as $evento): ?>
+        <tr>
+            <td>
+                <?= $evento['id'] ?>
+            </td>
+            <td>
+                <?= $evento['nomeevento'] ?>
+            </td>
+            <td>
+                <?= $evento['data'] ?>
+            </td>
+            <td>
+                <?= $evento['local'] ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+</body>
+
+</html>

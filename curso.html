@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cursos</title>
+</head>
+
+<body>
+    <form method="post" action="curso.php">
+        <label>Nome do Curso</label>
+        <input type="text" name="nomecurso">
+        <label>Carga Horária (em horas)</label>
+        <input type="number" name="cargahoraria">
+        <label>Categoria</label>
+        <input type="text" name="categoria">
+        <button type="submit">Salvar</button>
+    </form>
+
+    <?php if (isset($cursos)): ?>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome do Curso</th>
+            <th>Carga Horária</th>
+            <th>Categoria</th>
+        </tr>
+        <?php foreach ($cursos as $curso): ?>
+        <tr>
+            <td>
+                <?= $curso['id'] ?>
+            </td>
+            <td>
+                <?= $curso['nomecurso'] ?>
+            </td>
+            <td>
+                <?= $curso['cargahoraria'] ?>
+            </td>
+            <td>
+                <?= $curso['categoria'] ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+</body>
+
+</html>

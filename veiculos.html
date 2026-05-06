@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veiculos</title>
+</head>
+
+<body>
+    <form method="post" action="veiculos.php">
+        <label>Placa</label>
+        <input type="text" name="placa">
+        <label>Modelo</label>
+        <input type="text" name="modelo">
+        <label>Marca</label>
+        <input type="text" name="marca">
+        <button type="submit">Salvar</button>
+    </form>
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Placa</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+        </tr>
+        <?php foreach ($veiculos as $veiculo): ?>
+        <tr>
+            <td>
+                <?= $veiculo['id'] ?>
+            </td>
+            <td>
+                <?= $veiculo['placa'] ?>
+            </td>
+            <td>
+                <?= $veiculo['modelo'] ?>
+            </td>
+            <td>
+                <?= $veiculo['marca'] ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</body>
+
+</html>

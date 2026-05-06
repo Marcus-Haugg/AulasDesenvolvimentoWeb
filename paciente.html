@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pacientes</title>
+</head>
+
+<body>
+    <form method="post" action="paciente.php">
+        <label>Nome Completo</label>
+        <input type="text" name="nome">
+        <label>Número do Prontuário</label>
+        <input type="text" name="prontuario">
+        <label>Tipo Sanguíneo</label>
+        <input type="text" name="tiposanguinio">
+        <button type="submit">Salvar</button>
+    </form>
+
+    <?php if (isset($pacientes)): ?>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome Completo</th>
+            <th>Prontuário</th>
+            <th>Tipo Sanguíneo</th>
+        </tr>
+        <?php foreach ($pacientes as $paciente): ?>
+        <tr>
+            <td>
+                <?= $paciente['id'] ?>
+            </td>
+            <td>
+                <?= $paciente['nome'] ?>
+            </td>
+            <td>
+                <?= $paciente['prontuario'] ?>
+            </td>
+            <td>
+                <?= $paciente['tiposanguinio'] ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+</body>
+
+</html>
